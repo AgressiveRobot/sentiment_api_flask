@@ -35,7 +35,7 @@ def get_sentiment(message: str) -> dict:
                 sentiment_score += count
             elif sentiment == 'negative':
                 sentiment_score -= count
-             """
+            """
             После формирования SENTIMENT_SCORE - используем его чтобы установить значение SENTIMENT текстом, как просит задание, а также булевое IsNegative
             """
     if sentiment_score > 0:
