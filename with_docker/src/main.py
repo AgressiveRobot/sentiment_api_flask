@@ -104,4 +104,5 @@ def get_reviews():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
+    db.init_db()
     app.run(debug=True)
