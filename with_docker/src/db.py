@@ -40,7 +40,7 @@ def add_review(text, sentiment_score, sentiment, is_negative):
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO reviews (text, sentiment_score, sentiment, sentiment_score, IsNegative, created_at)
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?,?)
         ''', (text, sentiment_score, sentiment, is_negative_int, created_at))
         conn.commit()
 
