@@ -39,7 +39,7 @@ def add_review(text, sentiment_score, sentiment, is_negative):
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO reviews (text, sentiment_score, sentiment, IsNegative, created_at)
+            INSERT INTO reviews (text, sentiment_score, sentiment, sentiment_score, IsNegative, created_at)
             VALUES (?, ?, ?, ?, ?)
         ''', (text, sentiment_score, sentiment, is_negative_int, created_at))
         conn.commit()
@@ -47,9 +47,9 @@ def add_review(text, sentiment_score, sentiment, is_negative):
 def get_all_reviews():
     """
     Возвращает все отзывы из базы данных.
-    Каждая запись — кортеж: (id, text, sentiment, IsNegative, created_at)
+    Каждая запись — кортеж: (id, text, sentiment,sentiment_score, IsNegative, created_at)
     """
     with get_connection() as conn:
         cursor = conn.cursor()
-        cursor.execute('SELECT id, text, sentiment, IsNegative, created_at FROM reviews')
+        cursor.execute('SELECT id, text, sentiment, sentiment_score, IsNegative, created_at FROM reviews')
         return cursor.fetchall()
