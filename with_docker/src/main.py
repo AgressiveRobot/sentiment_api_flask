@@ -92,8 +92,8 @@ def get_reviews():
                 'id': r[0],
                 'text': r[1],
                 'sentiment': r[2],
-                'sentiment_score':r[5],
-                'created_at': r[4]
+                'sentiment_score':r[3],
+                'created_at': r[5]
             })
         return jsonify(result_list), 200
 
