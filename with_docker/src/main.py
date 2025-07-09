@@ -1,18 +1,20 @@
 from flask import Flask
 import re
+import sqlite3
+import os
 # HTTPERRORS!!!
 
 
 # Sentiments module / Работа с отзывами
 app = Flask(__name__)
 
+# Работа с БД (перенесено из db.py для упрощения проекта)
+
+DB_PATH = 'reviews.db'
 
 
 
-# !!  добавить подключение к базе
-
-
-#  Функции
+#  Функции обработки сообщений
 def get_sentiment_mark(message:str) -> int : #Определить настроение сообщения 
     sentiment_score = 0
 
