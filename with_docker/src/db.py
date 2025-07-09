@@ -9,20 +9,20 @@ def init_db():
     Создаёт базу данных и таблицу reviews, если их ещё нет. 
     Теперь используем все поля sentiments
     """
-    if not os.path.exists(DB_PATH):
-        with sqlite3.connect(DB_PATH) as conn:
-            cursor = conn.cursor()
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS reviews (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    text TEXT NOT NULL,
-                    sentiment_score INTEGER NOT NULL,
-                    sentiment TEXT NOT NULL,
-                    IsNegative INTEGER NOT NULL,
-                    created_at DATETIME NOT NULL
-                )
-            ''')
-            conn.commit()
+
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS reviews (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                text TEXT NOT NULL,
+                sentiment_score INTEGER NOT NULL,
+                sentiment TEXT NOT NULL,
+                IsNegative INTEGER NOT NULL,
+                created_at DATETIME NOT NULL
+            )
+        ''')
+        conn.commit()
 
 def get_connection():
     """
